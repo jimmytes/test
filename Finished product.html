@@ -1,0 +1,325 @@
+<html>
+        <head>
+                <title>Finished product</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><!--避免中文亂碼-->
+        </head>
+    <body>
+        <div class="bar">
+         <div class="inbar">Home</div>
+         <div class="inbar">Image</div>
+         <div class="inbar">Video</div>
+         <div class="inbar">Game</div>
+        </div>
+        <div style="padding-top:34px;">
+         <div class="line"></div>
+         <div class="line1"></div>
+        </div>
+        <div style="padding-top:34px;"><!--以下為內容-->
+            <div class="page1">
+                <div>This is a test including HTML CSS Javascript jQuery RWD and Bootstrap</div>
+            </div>
+            <div class="page2">
+                <div>這是張漂亮的銀河</div>
+                <img style="width:100%; height:auto;" src="https://upload.cc/i1/2019/08/22/gmE9fY.jpg">
+            </div>
+            <div class="page3">
+                <div>這是個耖他媽中二的東西</div>
+                <iframe width="100%" height="75%" src="https://www.youtube.com/embed/ngPQWAwRk70?list=RDngPQWAwRk70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="page4">
+                <div id="game" style="height:515px"></div><!--設置高的目的是為了不讓載入的網頁產生捲軸-->
+            </div>
+        </div>
+        <div class="last">All rights reserved © Copyright<br>Authorize by Jimmy<br>Tel:(+886)0973195234<br>Fax:0000-1111-2222</div>
+
+    </body>
+
+    <style>
+    
+    body{
+        background-color:#66e0ff;
+    }
+    .bar{
+        position:absolute;
+        width:100%;
+        background-color:white;
+    }
+    .inbar{
+        float:left;
+        padding:5px;
+        width:10%;
+        font-size:16px;/*預設值*/
+        text-align:center;
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+        cursor:pointer;/*滑鼠指標*/
+    }
+    .inbar:nth-child(1){
+        background-color:#66e0ff;
+        border-left:2px solid black;
+        border-top:2px solid black;
+        border-right:2px solid black;
+    }
+    .line{
+        position:relative;
+        float:right;
+        width:90%;
+        height:2px;
+        background-color:black;
+    }
+    .line1{
+        position:relative;
+        float:left;
+        width:0%;
+        height:2px;
+        background-color:black;
+    }
+    .inbar:nth-child(1):hover{
+        border-left:2px solid black;
+        border-top:2px solid black;
+        border-right:2px solid black;
+    }
+    .inbar:nth-child(2):hover,.inbar:nth-child(3):hover,.inbar:nth-child(4):hover{
+        border-left:1px solid gray;
+        border-top:1px solid gray;
+        border-right:1px solid gray;
+    }
+    .page2,.page3,.page4{
+        display:none;
+    }
+    .last{
+        width:90%;
+        height:1px;
+        background-color:gray;
+        color:white;
+        margin-left:5%;/*另類置中方法寬90左右各5總和100*/
+        margin-right:5%;
+        margin-top:40%;
+        text-align:center;
+    }
+    /**********RWD***********/
+    @media only screen and (min-width: 400px){/*平板介面*/
+    .inbar{
+        width:20%;
+        }
+    .line{
+        width:80%;
+        }
+    .line1{
+        width:0%;
+        }
+    }
+    @media only screen and (min-width: 768px){/*電腦介面*/
+    .inbar{
+        width:10%;
+        }
+    .line{
+        width:90%;
+        }
+    .line1{
+        width:0%;
+        }
+    }
+    /**********RWD***********/
+    </style>
+    <script>
+    var y = 1;
+    var z = document.body.clientWidth;/*載入檔案時偵測一次目前的寬度*/
+
+    $(".inbar:nth-child(1)").click(
+        function(){
+            y = 1;
+            if(z>=768){/*單純按下選單時依據視窗大小*/
+            $(".line").css("width","90%");
+            $(".line1").css("width","0%");
+            }
+            if(z<768){
+            $(".line").css("width","80%");
+            $(".line1").css("width","0%");
+            }
+            $(".inbar:nth-child(1)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black","backgroundColor":"#66e0ff"});
+            $(".inbar:nth-child(2), .inbar:nth-child(3), .inbar:nth-child(4)").css({"border":"0px solid gray","backgroundColor":"white"});
+            $("body").css("backgroundColor","#66e0ff");
+            $(".inbar:nth-child(1)").hover(
+                function(){
+                    $(".inbar:nth-child(1)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                },
+                function(){
+                    $(".inbar:nth-child(1)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                }
+            );
+            $(".inbar").not(".inbar:nth-child(1)").hover(
+                function(){
+                    $(this).css({"border-left":"1px solid gray","border-top":"1px solid gray","border-right":"1px solid gray"});
+                },
+                function(){
+                    $(this).css({"border-left":"0px solid gray","border-top":"0px solid gray","border-right":"0px solid gray"});
+                }
+            );
+            $(".page1").show();
+            $(".page2").hide();
+            $(".page3").hide();
+            $(".page4").hide();
+
+        }
+    );
+    $(".inbar:nth-child(2)").click(
+        function(){
+            y = 2;
+            if(z>=768){
+            $(".line").css("width","80%");
+            $(".line1").css("width","10%");
+            }
+            if(z<768){
+            $(".line").css("width","60%");
+            $(".line1").css("width","20%");
+            }
+            $(".inbar:nth-child(2)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black","backgroundColor":"#ff3333"});
+            $(".inbar:nth-child(1), .inbar:nth-child(3), .inbar:nth-child(4)").css({"border":"0px solid gray","backgroundColor":"white"});
+            $("body").css("backgroundColor","#ff3333");
+            $(".inbar:nth-child(2)").hover(
+                function(){
+                    $(".inbar:nth-child(2)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                },
+                function(){
+                    $(".inbar:nth-child(2)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                }
+            );
+            $(".inbar").not(".inbar:nth-child(2)").hover(
+                function(){
+                    $(this).css({"border-left":"1px solid gray","border-top":"1px solid gray","border-right":"1px solid gray"});
+                },
+                function(){
+                    $(this).css({"border-left":"0px solid gray","border-top":"0px solid gray","border-right":"0px solid gray"});
+                }
+            );
+            $(".page1").hide();
+            $(".page2").show();
+            $(".page3").hide();
+            $(".page4").hide();     
+        }
+    );
+    $(".inbar:nth-child(3)").click(
+        function(){
+            y = 3;
+            if(z>=768){
+            $(".line").css("width","70%");
+            $(".line1").css("width","20%");
+            }
+            if(z<768){
+            $(".line").css("width","40%");
+            $(".line1").css("width","40%");
+            }
+            $(".inbar:nth-child(3)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black","backgroundColor":"#ffff66"});
+            $(".inbar:nth-child(1), .inbar:nth-child(2), .inbar:nth-child(4)").css({"border":"0px solid gray","backgroundColor":"white"});
+            $("body").css("backgroundColor","#ffff66");
+            $(".inbar:nth-child(3)").hover(
+                function(){
+                    $(".inbar:nth-child(3)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                },
+                function(){
+                    $(".inbar:nth-child(3)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                }
+            );
+            $(".inbar").not(".inbar:nth-child(3)").hover(
+                function(){
+                    $(this).css({"border-left":"1px solid gray","border-top":"1px solid gray","border-right":"1px solid gray"});
+                },
+                function(){
+                    $(this).css({"border-left":"0px solid gray","border-top":"0px solid gray","border-right":"0px solid gray"});
+                }
+            );
+            $(".page1").hide();
+            $(".page2").hide();
+            $(".page3").show();
+            $(".page4").hide();
+        }
+    );
+    $(".inbar:nth-child(4)").click(
+        function(){
+            y = 4;
+            if(z>=768){
+            $(".line").css("width","60%");
+            $(".line1").css("width","30%");
+            }
+            if(z<768){
+            $(".line").css("width","20%");
+            $(".line1").css("width","60%");
+            }
+            $(".inbar:nth-child(4)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black","backgroundColor":"#4dff4d"});
+            $(".inbar:nth-child(1), .inbar:nth-child(2), .inbar:nth-child(3)").css({"border":"0px solid gray","backgroundColor":"white"});
+            $("body").css("backgroundColor","#4dff4d");
+            $(".inbar:nth-child(4)").hover(
+                function(){
+                    $(".inbar:nth-child(4)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                },
+                function(){
+                    $(".inbar:nth-child(4)").css({"border-left":"2px solid black","border-top":"2px solid black","border-right":"2px solid black"});
+                }
+            );
+            $(".inbar").not(".inbar:nth-child(4)").hover(
+                function(){
+                    $(this).css({"border-left":"1px solid gray","border-top":"1px solid gray","border-right":"1px solid gray"});
+                },
+                function(){
+                    $(this).css({"border-left":"0px solid gray","border-top":"0px solid gray","border-right":"0px solid gray"});
+                }
+            );
+            $(".page1").hide();
+            $(".page2").hide();
+            $(".page3").hide();
+            $(".page4").show();
+            document.getElementById("game").innerHTML = '<object type="text/html" data="stair.html" width="100%" height="100%"></object>';
+        }
+    );
+    $(window).resize(function(){/*拖曳視窗大小時不斷執行*/
+        z = document.body.clientWidth;/*拖曳視窗寬度時不斷偵測視窗寬度*/
+            if(y==1){
+             if(z>=768){
+             $(".line").css("width","90%");
+             $(".line1").css("width","0%");
+             }
+             if(z<768){
+             $(".line").css("width","80%");
+             $(".line1").css("width","0%");
+             }
+            }
+            if(y==2){
+             if(z>=768){
+             $(".line").css("width","80%");
+             $(".line1").css("width","10%");
+             }
+             if(z<768){
+             $(".line").css("width","60%");
+             $(".line1").css("width","20%");
+             }
+            }
+            if(y==3){
+             if(z>=768){
+             $(".line").css("width","70%");
+             $(".line1").css("width","20%");
+             }
+             if(z<768){
+             $(".line").css("width","40%");
+             $(".line1").css("width","40%");
+             }
+            }
+            if(y==4){
+             if(z>=768){
+             $(".line").css("width","60%");
+             $(".line1").css("width","30%");
+             }
+             if(z<768){
+             $(".line").css("width","20%");
+             $(".line1").css("width","60%");
+             }
+            }
+        });
+
+    </script>
+</html>
